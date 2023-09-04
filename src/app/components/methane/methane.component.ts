@@ -14,11 +14,23 @@ export class MethaneComponent implements OnInit {
   }
   
   methane: any
+  methaneData: any
+
+  dataSet = [{data: [], label: ''}]
+  labels!: Array<any>
+  
 
   getMethane(){
     this.mainService.getMethane().subscribe(
       (data) => {
-        this.methane = data
+        this.methaneData = data
+        this.methane = this.methaneData.methane
+
+        this.labels = this.methane.map((e: any) => e.date)
+        
+        this.dataSet = [
+          {data: this.methane.map((e: any) => e.average), label: 'average'}
+        ]
         console.log(this.methane)
       }
     )

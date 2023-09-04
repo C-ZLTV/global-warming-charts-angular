@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ChartDataset } from 'chart.js';
 import { MainService } from 'src/app/services/main.service';
 
 @Component({
@@ -6,19 +7,35 @@ import { MainService } from 'src/app/services/main.service';
   templateUrl: './co2.component.html',
   styleUrls: ['./co2.component.css']
 })
-export class Co2Component implements OnInit {
+export class Co2Component {
   constructor(private mainService: MainService){}
 
   ngOnInit(): void {
-    this.getCo2()
+    this.getMethane()
   }
-  
-  co2: any
+    
+co2: any
+ co2Data: any
 
-  getCo2(){
+  dataSet:{data: any[], label: string, fill: boolean, borderColor: string, borderWidth: number, tension:number}[]  = []
+  labels!: Array<number>
+
+  chartOptions: any = {
+    responsive: true
+  };  
+  
+  getMethane(){
     this.mainService.getCo2().subscribe(
       (data) => {
-        this.co2 = data
+        this.co2Data = data
+        this.co2 = this.co2Data.co2
+
+        this.labels = this.co2.map((e: any) => e.year)
+        
+        this.dataSet = [
+          {data: this.co2.map((e: any) => e.trend),
+            label: 'trend', fill:true, borderColor: '#fff', borderWidth: 1, tension: 0.5}
+        ]
         console.log(this.co2)
       }
     )

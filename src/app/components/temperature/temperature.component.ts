@@ -15,11 +15,19 @@ export class TemperatureComponent implements OnInit {
   }
   
   temp: any
+  tempData: any
+  labels!: Array<number>
+  dataSet = [{data: [], label: ''}]
 
   getTemp(){
     this.mainService.getTemp().subscribe(
       (data) => {
-        this.temp = data
+        this.tempData = data
+        this.temp = this.tempData.result
+
+        this.labels = this.temp.map((e: any) => e.time)
+
+        this.dataSet = [{data: this.temp.map((e: any) => e.land), label: 'land'}]
         console.log(this.temp)
       }
     )
