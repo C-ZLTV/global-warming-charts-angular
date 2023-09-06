@@ -13,6 +13,7 @@ import { MethaneComponent } from './components/methane/methane.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { Four0fourComponent } from './components/four0four/four0four.component';
 import { GoBackBtnComponent } from './components/go-back-btn/go-back-btn.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { GoBackBtnComponent } from './components/go-back-btn/go-back-btn.compone
     HomepageComponent,
     Four0fourComponent,
     GoBackBtnComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
