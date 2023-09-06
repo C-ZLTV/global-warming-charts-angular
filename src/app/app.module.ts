@@ -14,6 +14,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { Four0fourComponent } from './components/four0four/four0four.component';
 import { GoBackBtnComponent } from './components/go-back-btn/go-back-btn.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     Four0fourComponent,
     GoBackBtnComponent,
     NavBarComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

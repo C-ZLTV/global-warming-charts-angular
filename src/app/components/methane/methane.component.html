@@ -1,6 +1,6 @@
 <h2>Methane</h2>
 
-<div class="chart-wrapper" *ngIf="!errorMessage; else error">
+<div class="chart-wrapper" *ngIf="!errorMessage">
     <canvas baseChart
     [type]="'line'"
     [datasets]="dataSet"
@@ -8,7 +8,5 @@
     ></canvas>
 </div>
 
-<ng-template #error>
-    <p>{{errorMessage}}</p>
-</ng-template>
+<app-error [errorMessage]="errorMessage"></app-error>
 <app-go-back-btn></app-go-back-btn>
