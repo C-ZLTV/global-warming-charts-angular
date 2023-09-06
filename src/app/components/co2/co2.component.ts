@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ChartDataset } from 'chart.js';
 import { MainService } from 'src/app/services/main.service';
+import { DataSet } from 'src/app/interfaces';
+import { ChartOptions } from 'chart.js';
+import { Co2 } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-co2',
@@ -14,27 +16,27 @@ export class Co2Component {
     this.getMethane()
   }
     
-co2: any
+ co2!: Co2[]
  co2Data: any
 
-  dataSet:{data: any[], label: string, fill: boolean, borderColor: string, borderWidth: number, tension:number}[]  = []
-  labels!: Array<number>
+  dataSet!: DataSet[] 
+  labels!: number[]
 
-  chartOptions: any = {
+  chartOptions: ChartOptions = {
     responsive: true
   };  
-  
+
   getMethane(){
     this.mainService.getCo2().subscribe(
       (data) => {
         this.co2Data = data
         this.co2 = this.co2Data.co2
 
-        this.labels = this.co2.map((e: any) => e.year)
+        this.labels = this.co2.map((e: Co2) => e.year)
         
         this.dataSet = [
-          {data: this.co2.map((e: any) => e.trend),
-            label: 'trend', fill:true, borderColor: '#fff', borderWidth: 1, tension: 0.5}
+          {data: this.co2.map((e: Co2) => e.trend),
+            label: 'trend', fill:true}
         ]
         console.log(this.co2)
       }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
+import { Arctic } from 'src/app/interfaces';
+import { DataSet } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-arctic',
@@ -15,9 +17,9 @@ export class ArcticComponent implements OnInit {
   }
   
   arctic: any
-  arcticData: any
+  arcticData!: Arctic[]
   
-  datasets = [{data: [], label: ''}]
+  datasets!: DataSet[]
   lables!: number[]
 
   getArcticData(){
@@ -27,12 +29,10 @@ export class ArcticComponent implements OnInit {
         this.arctic = data
         this.arcticData = this.arctic.arcticData
         
-        this.lables = this.arcticData.map((e:any) => e.year)
+        this.lables = this.arcticData.map((e:Arctic) => e.year)
 
         this.datasets = [
-          {data: this.arcticData.map((e:any) => e.area), label: 'area' },
-          {data: this.arcticData.map((e:any) => e.extent), label: 'extent'},
-          {data: this.arcticData.map((e:any) => e.rank), label: 'rank' }
+          {data: this.arcticData.map((e:Arctic) => e.area), label: 'area', fill: true}
         ]
         console.log(this.arcticData)
       }

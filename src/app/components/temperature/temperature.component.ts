@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
+import { Temperature } from 'src/app/interfaces';
+import { DataSet } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-temperature',
@@ -14,10 +16,10 @@ export class TemperatureComponent implements OnInit {
     this.getTemp()
   }
   
-  temp: any
+  temp!: Temperature[]
   tempData: any
   labels!: Array<number>
-  dataSet = [{data: [], label: ''}]
+  dataSet!: DataSet[]
 
   getTemp(){
     this.mainService.getTemp().subscribe(
@@ -25,9 +27,10 @@ export class TemperatureComponent implements OnInit {
         this.tempData = data
         this.temp = this.tempData.result
 
-        this.labels = this.temp.map((e: any) => e.time)
+        this.labels = this.temp.map((e: Temperature) => e.time)
 
-        this.dataSet = [{data: this.temp.map((e: any) => e.land), label: 'land'}]
+        this.dataSet = [{data: this.temp.map((e: Temperature) => e.land), label: 'land',
+        fill: false},]
         console.log(this.temp)
       }
     )

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
+import { DataSet, Methane } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-methane',
@@ -13,10 +14,10 @@ export class MethaneComponent implements OnInit {
     this.getMethane()
   }
   
-  methane: any
+  methane!: Methane[]
   methaneData: any
 
-  dataSet = [{data: [], label: ''}]
+  dataSet!: DataSet[]
   labels!: Array<any>
   
 
@@ -26,10 +27,11 @@ export class MethaneComponent implements OnInit {
         this.methaneData = data
         this.methane = this.methaneData.methane
 
-        this.labels = this.methane.map((e: any) => e.date)
+        this.labels = this.methane.map((e: Methane) => e.date)
         
         this.dataSet = [
-          {data: this.methane.map((e: any) => e.average), label: 'average'}
+          {data: this.methane.map((e: Methane) => e.average), label: 'average',
+          fill: true}
         ]
         console.log(this.methane)
       }
