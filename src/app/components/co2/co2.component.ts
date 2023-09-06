@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
-import { DataSet } from 'src/app/interfaces';
+import { DataSet } from 'src/app/interfaces/charts';
 import { ChartOptions } from 'chart.js';
-import { Co2 } from 'src/app/interfaces';
+import { Co2 } from 'src/app/interfaces/co2';
 
 @Component({
   selector: 'app-co2',

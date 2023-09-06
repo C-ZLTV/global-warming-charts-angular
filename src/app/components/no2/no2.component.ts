@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
-import { No2 } from 'src/app/interfaces';
-import { DataSet } from 'src/app/interfaces';
+import { No2 } from 'src/app/interfaces/no2';
+import { DataSet } from 'src/app/interfaces/charts';
 
 @Component({
   selector: 'app-no2',

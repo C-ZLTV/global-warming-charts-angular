@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
-import { DataSet, Methane } from 'src/app/interfaces';
+import { DataSet } from 'src/app/interfaces/charts';
+import { Methane } from 'src/app/interfaces/methane';
 
 @Component({
   selector: 'app-methane',

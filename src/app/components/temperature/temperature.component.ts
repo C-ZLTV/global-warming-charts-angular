@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
-import { Temperature } from 'src/app/interfaces';
-import { DataSet } from 'src/app/interfaces';
+import { Temperature } from 'src/app/interfaces/temperature';
+import { DataSet } from 'src/app/interfaces/charts';
 
 @Component({
   selector: 'app-temperature',

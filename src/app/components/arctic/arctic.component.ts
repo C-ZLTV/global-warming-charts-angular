@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
-import { Arctic } from 'src/app/interfaces';
-import { DataSet } from 'src/app/interfaces';
+import { Arctic } from 'src/app/interfaces/arctic';
+import { DataSet } from 'src/app/interfaces/charts';
 
 @Component({
   selector: 'app-arctic',
