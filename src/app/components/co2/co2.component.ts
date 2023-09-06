@@ -3,6 +3,7 @@ import { MainService } from 'src/app/services/main.service';
 import { DataSet } from 'src/app/interfaces/charts';
 import { ChartOptions } from 'chart.js';
 import { Co2 } from 'src/app/interfaces/co2';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-co2',
@@ -22,12 +23,22 @@ export class Co2Component {
   dataSet!: DataSet[] 
   labels!: number[]
 
+
+  errorMessage: Error | null = null
+
   chartOptions: ChartOptions = {
     responsive: true
   };  
 
   getMethane(){
-    this.mainService.getCo2().subscribe(
+    this.mainService.getCo2()
+    .pipe(
+      catchError((error) => {
+        this.errorMessage = error;
+        return [];
+      })
+    )
+    .subscribe(
       (data) => {
         this.co2Data = data
         this.co2 = this.co2Data.co2

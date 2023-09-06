@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { No2 } from 'src/app/interfaces/no2';
 import { DataSet } from 'src/app/interfaces/charts';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-no2',
@@ -21,8 +22,17 @@ export class No2Component implements OnInit{
   labels!: Array<number>
   dataSet!: DataSet[]
 
+  errorMessage: Error | null = null
+
   getNo2(){
-    this.mainService.getNo2().subscribe(
+    this.mainService.getNo2()
+    .pipe(
+      catchError((error) => {
+        this.errorMessage = error;
+        return [];
+      })
+    )
+    .subscribe(
       (data) => {
         this.no2Data = data
         this.no2 = this.no2Data.nitrous

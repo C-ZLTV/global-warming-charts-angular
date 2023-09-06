@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,11 @@ export class MainService {
 
   getData(url: string){
     return this.http.get(url)
+    .pipe(
+      catchError(() => {
+        return throwError(() => new Error('Couldn\'t load chart'))
+      })
+    )
   }
 
   getTemp(){

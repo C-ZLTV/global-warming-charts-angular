@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { Arctic } from 'src/app/interfaces/arctic';
 import { DataSet } from 'src/app/interfaces/charts';
+import { catchError, tap } from 'rxjs';
 
 @Component({
   selector: 'app-arctic',
@@ -22,8 +23,16 @@ export class ArcticComponent implements OnInit {
   datasets!: DataSet[]
   lables!: number[]
 
+  errorMessage: Error | null = null
+
   getArcticData(){
     this.mainService.getArctic()
+    .pipe(
+      catchError((error) => {
+        this.errorMessage = error;
+        return [];
+      })
+    )
     .subscribe(
       (data) => {
         this.arctic = data

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { DataSet } from 'src/app/interfaces/charts';
 import { Methane } from 'src/app/interfaces/methane';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-methane',
@@ -21,9 +22,17 @@ export class MethaneComponent implements OnInit {
   dataSet!: DataSet[]
   labels!: Array<any>
   
+  errorMessage: Error | null = null
 
   getMethane(){
-    this.mainService.getMethane().subscribe(
+    this.mainService.getMethane()
+    .pipe(
+      catchError((error) => {
+        this.errorMessage = error;
+        return [];
+      })
+    )
+    .subscribe(
       (data) => {
         this.methaneData = data
         this.methane = this.methaneData.methane
