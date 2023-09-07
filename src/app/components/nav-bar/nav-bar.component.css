@@ -1,0 +1,39 @@
+.nav-list {
+    padding: 3rem 0rem 1rem 0rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+} 
+
+.route {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.3em 0.6em;
+    border: none;
+    text-align: center;
+}
+
+.homepage-route {
+    display: none;
+}
+
+.arctic-route {
+    background-color: var(--arctic-color);
+}
+
+.co2-route {
+    background-color: var(--co2-color);
+}
+
+.methane-route {
+    background-color: var(--methane-color);
+}
+
+.no2-route {
+    background-color: var(--no2-color);
+}
+
+.temp-route {
+    background-color: var(--temp-color);
+}

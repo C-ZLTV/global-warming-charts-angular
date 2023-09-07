@@ -1,11 +1,21 @@
-* {
+:root {
+    --primary-color: #f1f1f1ff;
+    --secondary-color: black;
+    --arctic-color: #1426adff;
+    --co2-color: #012239ff;
+    --methane-color: #23ad7aff;
+    --no2-color: #ff6f22ff;
+    --temp-color: #8400a1ff
+}
+
+*{
     box-sizing: border-box;
 }
 
 body{
     margin: 0;
     padding: 0;
-    background-color: #f1f1f1ff;
+    background-color: var(--main-color);
     font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -16,5 +26,5 @@ ul {
 }
 
 a {
-    color: black;
+    color: var(--secondary-color);
 }
