@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-go-back-btn',
@@ -8,9 +8,9 @@ import { Location } from '@angular/common';
 })
 export class GoBackBtnComponent {
 
-  constructor(private location: Location){}
+  constructor(private router: Router){}
 
-  goBack(){
-    this.location.back()
+  goBack(): void{
+    this.router.navigate(['/homepage'])
   }
 }
