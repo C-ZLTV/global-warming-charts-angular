@@ -22,15 +22,13 @@ export class ArcticComponent implements OnInit {
   arctic: any
   arcticData!: Arctic[]
   
-  datasets!: any
+  datasets!: DataSet[]
   lables!: number[]
 
-  mainChartColor: string = 'black'
+  mainChartColor: string = '#1426adff'
 
   chartOptions: ChartOptions = {
-    responsive: true,
-    //TODO: responsive options
-    //TODO: custom color
+    responsive: true
   }; 
 
   errorMessage: Error | null = null

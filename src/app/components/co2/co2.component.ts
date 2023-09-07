@@ -20,16 +20,16 @@ export class Co2Component {
  co2!: Co2[]
  co2Data: any
 
-  dataSet!: DataSet[] 
+  dataSet!: DataSet[]
   labels!: number[]
+
+  mainChartColor = '#012239ff'
 
 
   errorMessage: Error | null = null
 
   chartOptions: ChartOptions = {
     responsive: true
-    //TODO: responsive options
-    //TODO: custom color
   };  
 
   getMethane(){
@@ -49,7 +49,11 @@ export class Co2Component {
         
         this.dataSet = [
           {data: this.co2.map((e: Co2) => e.trend),
-            label: 'trend', fill:true}
+            label: 'trend',
+            fill:true,
+            backgroundColor: this.mainChartColor,
+            borderColor: this.mainChartColor,
+            pointBackgroundColor: this.mainChartColor,}
         ]
         console.log(this.co2)
       }

@@ -3,6 +3,7 @@ import { MainService } from 'src/app/services/main.service';
 import { No2 } from 'src/app/interfaces/no2';
 import { DataSet } from 'src/app/interfaces/charts';
 import { catchError } from 'rxjs';
+import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-no2',
@@ -21,6 +22,12 @@ export class No2Component implements OnInit{
 
   labels!: Array<number>
   dataSet!: DataSet[]
+
+  mainChartColor = '#ff6f22ff'
+
+  chartOptions: ChartOptions = {
+    responsive: true
+  }; 
 
   errorMessage: Error | null = null
 
@@ -41,7 +48,11 @@ export class No2Component implements OnInit{
 
         this.dataSet = [
           {data: this.no2.map((e: No2) => e.average), label: 'average', 
-          fill: true}]
+          fill: true,
+          backgroundColor: this.mainChartColor,
+          borderColor: this.mainChartColor,
+          pointBackgroundColor: this.mainChartColor,
+        }]
         console.log(this.no2)
       }
     )

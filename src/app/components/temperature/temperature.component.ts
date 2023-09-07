@@ -3,6 +3,7 @@ import { MainService } from 'src/app/services/main.service';
 import { Temperature } from 'src/app/interfaces/temperature';
 import { DataSet } from 'src/app/interfaces/charts';
 import { catchError } from 'rxjs';
+import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-temperature',
@@ -22,6 +23,12 @@ export class TemperatureComponent implements OnInit {
   labels!: Array<number>
   dataSet!: DataSet[]
 
+  mainChartColor = '#8400a1ff'
+
+  chartOptions: ChartOptions = {
+    responsive: true
+  }; 
+
   errorMessage: Error | null = null
 
   getTemp(){
@@ -40,7 +47,11 @@ export class TemperatureComponent implements OnInit {
         this.labels = this.temp.map((e: Temperature) => e.time)
 
         this.dataSet = [{data: this.temp.map((e: Temperature) => e.land), label: 'land',
-        fill: false},]
+        fill: false,
+          backgroundColor: this.mainChartColor,
+          borderColor: this.mainChartColor,
+          pointBackgroundColor: this.mainChartColor,
+      }]
         console.log(this.temp)
       }
     )

@@ -3,6 +3,7 @@ import { MainService } from 'src/app/services/main.service';
 import { DataSet } from 'src/app/interfaces/charts';
 import { Methane } from 'src/app/interfaces/methane';
 import { catchError } from 'rxjs';
+import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-methane',
@@ -21,8 +22,14 @@ export class MethaneComponent implements OnInit {
 
   dataSet!: DataSet[]
   labels!: Array<any>
+
+  mainChartColor = '#23ad7aff'
   
   errorMessage: Error | null = null
+
+  chartOptions: ChartOptions = {
+    responsive: true
+  }; 
 
   getMethane(){
     this.mainService.getMethane()
@@ -41,7 +48,10 @@ export class MethaneComponent implements OnInit {
         
         this.dataSet = [
           {data: this.methane.map((e: Methane) => e.average), label: 'average',
-          fill: true}
+          fill: true,
+          backgroundColor: this.mainChartColor,
+          borderColor: this.mainChartColor,
+          pointBackgroundColor: this.mainChartColor}
         ]
         console.log(this.methane)
       }
