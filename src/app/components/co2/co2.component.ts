@@ -28,6 +28,8 @@ export class Co2Component {
 
   chartOptions: ChartOptions = {
     responsive: true
+    //TODO: responsive options
+    //TODO: custom color
   };  
 
   getMethane(){
