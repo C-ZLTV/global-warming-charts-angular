@@ -1,5 +1,8 @@
-.nav-list {
+.nav-list{
     padding: 3rem 0rem 1rem 0rem;
+}
+
+.charts-routes {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
@@ -12,6 +15,7 @@
     padding: 0.3em 0.6em;
     border: none;
     text-align: center;
+    cursor: pointer;
 }
 
 .homepage-route {
@@ -38,4 +42,45 @@
     background-color: var(--temp-color);
 }
 
-/* TODO: nav @media */
+@media screen and (min-width: 760px){
+
+    .nav-list {
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+    }
+
+    .homepage-route {
+        display: inline-block;
+    }
+
+    .route {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
+    .homepage-route:hover {
+        opacity: 0.7;
+    }
+    
+    .arctic-route:hover {
+        color: var(--arctic-color);
+    }
+    
+    .co2-route:hover {
+        color: var(--co2-color);
+    }
+    
+    .methane-route:hover {
+        color: var(--methane-color);
+    }
+    
+    .no2-route:hover {
+        color: var(--no2-color);
+    }
+    
+    .temp-route:hover {
+        color: var(--temp-color);
+    }
+}

@@ -1,3 +1,43 @@
 .footer {
     padding: 4rem 0 0 0;
+    
+}
+
+@media screen and (min-width: 760px) {
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .colors-wrapper {
+        display: flex;
+        gap: 1rem
+    }
+
+    .color {
+        width: 25px;
+        height: 25px;
+    }
+
+    .arctic-color{
+        background-color: var(--arctic-color);
+    }
+
+    .co2-color{
+        background-color: var(--co2-color);
+    }
+
+    .methane-color{
+        background-color: var(--methane-color);
+    }
+
+    .no2-color{
+        background-color: var(--no2-color);
+    }
+
+    .temp-color{
+        background-color: var(--temp-color);
+    }
 }
