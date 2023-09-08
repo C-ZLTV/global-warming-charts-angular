@@ -1,5 +1,4 @@
-
-<h2>CO2</h2>
+<h2>Carbon Dioxide levels</h2>
 <div class="chart-wrapper" *ngIf="!errorMessage">
     <canvas baseChart
     [type]="'line'"
@@ -7,6 +6,14 @@
     [labels]="labels"
     [options]="chartOptions"
     ></canvas>
+</div>
+
+<div>
+    <p>For thousands of years, the natural concentration of CO2 in earth atmosphere was around 280 ppm. From the beginning of the industrial revolution, human activities like the burning of fossil fuels, deforestation, and livestock have increased this amount by more than 30%.</p>
+
+    <p>For more information about prehistoric CO2 concentration, current and future consequences please visit:  Climate Change: Atmospheric Carbon Dioxide and The relentless rise of carbon dioxide.</p>
+
+    <p>For more detailed information please visit <a href="https://global-warming.org/"></a>Global Warming website</p>
 </div>
 
 <app-error [errorMessage]="errorMessage"></app-error>

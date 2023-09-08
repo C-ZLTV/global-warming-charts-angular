@@ -1,4 +1,4 @@
-<h2>Methane</h2>
+<h2>Methane levels</h2>
 
 <div class="chart-wrapper" *ngIf="!errorMessage">
     <canvas baseChart
@@ -7,6 +7,16 @@
     [labels]="labels"
     [options]="chartOptions"
     ></canvas>
+</div>
+
+<div>
+    <p>Methane is a flammable gas formed by geological and biological processes. Some of the natural ones are leaks from natural gas systems and wetlands.</p>
+
+    <p>50-65% of total global methane emissions come from human activities. These include livestock, agriculture, oil and gas systems, waste from homes and businesses, landfills, and so on.</p>
+
+    <p>Methane is a gas with a global warming potential several times stronger than of CO2. For more than 650,000 years, methane concentration in the atmosphere was between 350 – 800 ppb. From the beginning of the industrial revolution, human activities have increased this amount by around 150%.</p>
+
+    <p>For more detailed information please visit <a href="https://global-warming.org/"></a>Global Warming website</p>
 </div>
 
 <app-error [errorMessage]="errorMessage"></app-error>
