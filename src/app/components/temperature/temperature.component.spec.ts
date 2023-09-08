@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TemperatureComponent } from './temperature.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { NgChartsModule } from 'ng2-charts';
+import { MainService } from 'src/app/services/main.service';
+import { ErrorComponent } from '../error/error.component';
+import { GoBackBtnComponent } from '../go-back-btn/go-back-btn.component';
 
 describe('TemperatureComponent', () => {
   let component: TemperatureComponent;
@@ -8,7 +13,9 @@ describe('TemperatureComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TemperatureComponent]
+      declarations: [TemperatureComponent, ErrorComponent, GoBackBtnComponent],
+      imports: [HttpClientModule, NgChartsModule],
+      providers: [MainService]
     });
     fixture = TestBed.createComponent(TemperatureComponent);
     component = fixture.componentInstance;
